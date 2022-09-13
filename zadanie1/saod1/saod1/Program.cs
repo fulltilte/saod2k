@@ -7,7 +7,7 @@ public class Saod
 {
     public void AddToArray()
     {
-        Random rnd = new Random(1);
+        Random rnd = new Random();
         
         Console.Write("Введите число строк: ");
         int n = Convert.ToInt32(Console.ReadLine());
@@ -25,31 +25,28 @@ public class Saod
 
         char[] array = new char[n * m];
 
-        for (int i = 0; i < n * m; i++)
+        for (int i = 0; i < n; i++)
         {
-            int temp_probability = rnd.Next(1, 11);
-
-            if (probability >= temp_probability)
+            for (int j = 0; j < m; j++)
             {
-                array[i] = '+';
-                //Console.Write(array[i]);
-            }
-            else
-            {
-                array[i] = ' ';
-                //Console.Write(" ");
+                int temp_probability = rnd.Next(1, 11);
+                if (probability >= temp_probability)
+                {
+                    array[i * m + j] = '+';
+                }
+                else array[i * m + j] = ' ';
             }
         }
 
         Console.WriteLine("\t" + "Матрица" + "\n");
-        //Console.WriteLine("012");
-        Console.Write("\t" + array[0]);
-        for (int i = 1; i <= (m * n) - 1; i++)
-        {
-            if(i % m == 0)
-                Console.Write("\n" + "\t");
 
-            Console.Write(array[i]);
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < m; j++)
+            {
+                Console.Write(array[i * m + j]);
+            }
+            Console.WriteLine();
         }
 
         Console.WriteLine();
@@ -60,29 +57,29 @@ public class Saod
         Console.Write("Введите у: ");
         int y = Convert.ToInt32(Console.ReadLine());
 
-        f(x, y, array);
+        f(x, y, n, m, array);
 
-        void f(int x, int y, char[] array)
+        void f(int x, int y, int n, int m, char[] array)
         {
-            if ((array[((m * (y - 1)) + x) - 1] == ' ') && (x >= 0) && (y >= 0) && (x < n) && (y < m))
+            if (x >= 0 && y >= 0 && x < n && y < m && array[x * m + y] == ' ' )
             {
-                array[((m * (y - 1)) + x) - 1] = '-';
-                f(x + 1, y, array);
-                f(x - 1, y, array);
-                f(x, y + 1, array);
-                f(x, y - 1, array);
+                array[x * m + y] = '-';
+                f(x + 1, y, n, m, array);
+                f(x - 1, y, n, m, array);
+                f(x, y + 1, n, m, array);
+                f(x, y - 1, n, m, array);
             }
         }
 
         Console.WriteLine("\t" + "Матрица" + "\n");
 
-        Console.Write("\t" + array[0]);
-        for (int i = 1; i <= (m * n) - 1; i++)
+        for (int i = 0; i < n; i++)
         {
-            if (i % m == 0)
-                Console.Write("\n" + "\t");
-
-            Console.Write(array[i]);
+            for (int j = 0; j < m; j++)
+            {
+                Console.Write(array[i * m + j]);
+            }
+            Console.WriteLine();
         }
     }
 }
