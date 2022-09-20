@@ -25,6 +25,9 @@ public class Saod
 
         char[] array = new char[n * m];
 
+        int count_plus = 0;
+        int count_minus = 0;
+
         
 
         for (int i = 0; i < n; i++)
@@ -35,6 +38,7 @@ public class Saod
                 if (probability >= temp_probability)
                 {
                     array[i * m + j] = '+';
+                    count_plus++;
                 }
                 else array[i * m + j] = ' ';
             }
@@ -75,6 +79,8 @@ public class Saod
 
             if (x >= 0 && y >= 0 && x < n && y < m && array[x * m + y] == ' ')
             {
+                count_minus++;
+
                 array[x * m + y] = '-';
 
                 s.Push(x + 1);
@@ -102,5 +108,9 @@ public class Saod
             }
             Console.WriteLine();
         }
+
+        Console.WriteLine("Плюс - " + count_plus);
+        Console.WriteLine("Минус - " + count_minus);
+        Console.WriteLine("Пустые - " + ((n * m) - (count_plus + count_minus)));
     }
 }
