@@ -1,67 +1,59 @@
 ﻿using System;
+using System.Timers;
+using System.Threading;
+//using System.Diagnostics.Stopwatch watch;
 
 Saod s = new Saod();
 s.AddToArray();
 
+
 public class myStack<T>
 {
-    private T[] items;
-    private int count;
-    const int n = 10;  
+    private T[] _array;
+    private int _size;
+    private const int _defaultCapacity = 4;
+    static T[] _emptyArray = new T[0];
+
 
     public myStack()
     {
-        items = new T[n];
+        _array = _emptyArray;
+        _size = 0;
     }
 
-    public myStack(int length)
+    public myStack(int capacity)
     {
-        items = new T[length];
-    }
-
-    public bool IsEmpty
-    {
-        get { return count == 0; }
+        _array = new T[capacity];
+        _size = 0;
     }
 
     public int Count
     {
-        get { return count; }
-    }
-
-    public void Push(T item)
-    {
-        if (count == items.Length)
-            Resize(items.Length + 10);
-
-        items[count++] = item;
+        get { return _size; }
     }
 
     public T Pop()
     {
-        if (IsEmpty)
-            throw new InvalidOperationException("Стек пуст");
-
-        T item = items[--count];
-        items[count] = default(T);
-
-        if (count > 0 && count < items.Length - 10)
-            Resize(items.Length - 10);
-
+        T item = _array[--_size];
+        _array[_size] = default(T);
         return item;
     }
 
-    private void Resize(int max)
+    public void Push(T item)
     {
-        T[] tempItems = new T[max];
-        for (int i = 0; i < count; i++)
-            tempItems[i] = items[i];
-        items = tempItems;
+        if (_size == _array.Length)
+        {
+            T[] newArray = new T[Convert.ToInt32((_array.Length == 0) ? _defaultCapacity : 1.5 * _array.Length)];
+            Array.Copy(_array, 0, newArray, 0, _size);
+            _array = newArray;
+        }
+        _array[_size++] = item;
     }
 }
 
 public class Saod
 {
+
     public void AddToArray()
     {
         Random rnd = new Random();
@@ -96,7 +88,7 @@ public class Saod
             }
         }
 
-        Console.WriteLine("\t" + "Матрица" + "\n");
+        /*Console.WriteLine("\t" + "Матрица" + "\n");
 
         for (int i = 0; i < n; i++)
         {
@@ -105,7 +97,7 @@ public class Saod
                 Console.Write(array[i * m + j]);
             }
             Console.WriteLine();
-        }
+        }*/
 
         Console.WriteLine();
 
@@ -152,17 +144,41 @@ public class Saod
 
         Console.WriteLine("\t" + "Матрица" + "\n");
 
-        for (int i = 0; i < n; i++)
+        /*for (int i = 0; i < n; i++)
         {
             for (int j = 0; j < m; j++)
             {
                 Console.Write(array[i * m + j]);
             }
             Console.WriteLine();
-        }
+        }*/
 
         Console.WriteLine("Плюс - " + count_plus);
         Console.WriteLine("Минус - " + count_minus);
         Console.WriteLine("Пустые - " + ((n * m) - (count_plus + count_minus)));
+
+        System.Diagnostics.Stopwatch watch;
+
+        long elapsedMs;
+
+        int N = 100000;
+
+        var stack = new System.Collections.Generic.Stack<int>();
+        watch = System.Diagnostics.Stopwatch.StartNew();
+
+        for (int i = 0; i != N; i++)
+        {
+            stack.Push(i);
+        }
+        for (int i = 0; i != N; i++)
+        {
+            stack.Pop();
+        }
+
+        watch.Stop();
+        elapsedMs = watch.ElapsedMilliseconds;
+        System.Console.WriteLine(elapsedMs);
     }
+
+    
 }
