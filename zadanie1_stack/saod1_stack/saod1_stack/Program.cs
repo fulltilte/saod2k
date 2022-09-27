@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Timers;
 using System.Threading;
-//using System.Diagnostics.Stopwatch watch;
 
 Saod s = new Saod();
 s.AddToArray();
@@ -112,14 +111,28 @@ public class Saod
         s.Push(x);
         s.Push(y);
 
-        //s.Push(x, y);
+        System.Diagnostics.Stopwatch watch;
+
+        long elapsedMs;
+
+        int N = 1000000;
+
+        var stack = new System.Collections.Generic.Stack<int>();
+        watch = System.Diagnostics.Stopwatch.StartNew();
+
+        for (int i = 0; i != N; i++)
+        {
+            stack.Push(i);
+        }
+        for (int i = 0; i != N; i++)
+        {
+            stack.Pop();
+        }
 
         while (s.Count > 0)
         {
             y = s.Pop();
             x = s.Pop();
-
-            //(x, y) = s.Pop(x, y);
 
             if (x >= 0 && y >= 0 && x < n && y < m && array[x * m + y] == ' ')
             {
@@ -157,27 +170,11 @@ public class Saod
         Console.WriteLine("Минус - " + count_minus);
         Console.WriteLine("Пустые - " + ((n * m) - (count_plus + count_minus)));
 
-        System.Diagnostics.Stopwatch watch;
-
-        long elapsedMs;
-
-        int N = 100000;
-
-        var stack = new System.Collections.Generic.Stack<int>();
-        watch = System.Diagnostics.Stopwatch.StartNew();
-
-        for (int i = 0; i != N; i++)
-        {
-            stack.Push(i);
-        }
-        for (int i = 0; i != N; i++)
-        {
-            stack.Pop();
-        }
+        
 
         watch.Stop();
         elapsedMs = watch.ElapsedMilliseconds;
-        System.Console.WriteLine(elapsedMs);
+        System.Console.WriteLine("elapsedMs: " + Convert.ToDouble(elapsedMs) / 1000);
     }
 
     
