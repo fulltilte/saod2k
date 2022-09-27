@@ -3,6 +3,63 @@
 Saod s = new Saod();
 s.AddToArray();
 
+public class myStack<T>
+{
+    private T[] items;
+    private int count;
+    const int n = 10;  
+
+    public myStack()
+    {
+        items = new T[n];
+    }
+
+    public myStack(int length)
+    {
+        items = new T[length];
+    }
+
+    public bool IsEmpty
+    {
+        get { return count == 0; }
+    }
+
+    public int Count
+    {
+        get { return count; }
+    }
+
+    public void Push(T item)
+    {
+        if (count == items.Length)
+            Resize(items.Length + 10);
+
+        items[count++] = item;
+    }
+
+    public T Pop()
+    {
+        if (IsEmpty)
+            throw new InvalidOperationException("Стек пуст");
+
+        T item = items[--count];
+        items[count] = default(T);
+
+        if (count > 0 && count < items.Length - 10)
+            Resize(items.Length - 10);
+
+        return item;
+    }
+
+    private void Resize(int max)
+    {
+        T[] tempItems = new T[max];
+        for (int i = 0; i < count; i++)
+            tempItems[i] = items[i];
+        items = tempItems;
+    }
+}
+
 public class Saod
 {
     public void AddToArray()
@@ -15,9 +72,6 @@ public class Saod
         Console.Write("Введите число столбцов: ");
         int m = Convert.ToInt32(Console.ReadLine());
 
-        //Console.Write("Введите символ: ");
-        //char c = Convert.ToChar(Console.ReadLine());
-
         Console.Write("Введите вероятность: ");
         int probability = Convert.ToInt32(Console.ReadLine());
 
@@ -27,8 +81,6 @@ public class Saod
 
         int count_plus = 0;
         int count_minus = 0;
-
-        
 
         for (int i = 0; i < n; i++)
         {
@@ -63,7 +115,7 @@ public class Saod
         Console.Write("Введите у: ");
         int y = Convert.ToInt32(Console.ReadLine());
 
-        Stack<int> s = new Stack<int>();
+        myStack<int> s = new myStack<int>();
 
         s.Push(x);
         s.Push(y);
