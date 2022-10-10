@@ -1,0 +1,15 @@
+C:\Users\d4zzy\source\repos\List_SAOD\List_SAOD\bin\Debug\net6.0\List_SAOD.exe
+C:\Users\d4zzy\source\repos\List_SAOD\List_SAOD\bin\Debug\net6.0\List_SAOD.deps.json
+C:\Users\d4zzy\source\repos\List_SAOD\List_SAOD\bin\Debug\net6.0\List_SAOD.runtimeconfig.json
+C:\Users\d4zzy\source\repos\List_SAOD\List_SAOD\bin\Debug\net6.0\List_SAOD.dll
+C:\Users\d4zzy\source\repos\List_SAOD\List_SAOD\bin\Debug\net6.0\List_SAOD.pdb
+C:\Users\d4zzy\source\repos\List_SAOD\List_SAOD\obj\Debug\net6.0\List_SAOD.csproj.AssemblyReference.cache
+C:\Users\d4zzy\source\repos\List_SAOD\List_SAOD\obj\Debug\net6.0\List_SAOD.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\d4zzy\source\repos\List_SAOD\List_SAOD\obj\Debug\net6.0\List_SAOD.AssemblyInfoInputs.cache
+C:\Users\d4zzy\source\repos\List_SAOD\List_SAOD\obj\Debug\net6.0\List_SAOD.AssemblyInfo.cs
+C:\Users\d4zzy\source\repos\List_SAOD\List_SAOD\obj\Debug\net6.0\List_SAOD.csproj.CoreCompileInputs.cache
+C:\Users\d4zzy\source\repos\List_SAOD\List_SAOD\obj\Debug\net6.0\List_SAOD.dll
+C:\Users\d4zzy\source\repos\List_SAOD\List_SAOD\obj\Debug\net6.0\refint\List_SAOD.dll
+C:\Users\d4zzy\source\repos\List_SAOD\List_SAOD\obj\Debug\net6.0\List_SAOD.pdb
+C:\Users\d4zzy\source\repos\List_SAOD\List_SAOD\obj\Debug\net6.0\List_SAOD.genruntimeconfig.cache
+C:\Users\d4zzy\source\repos\List_SAOD\List_SAOD\obj\Debug\net6.0\ref\List_SAOD.dll
