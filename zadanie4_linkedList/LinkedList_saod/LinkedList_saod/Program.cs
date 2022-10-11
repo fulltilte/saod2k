@@ -1,113 +1,116 @@
 ﻿using System;
-using System.Runtime;
-using System.Runtime.Versioning;
-using System.Diagnostics;
-using System.Diagnostics.Contracts;
-using System.Collections.ObjectModel;
-using System.Security.Permissions;
-
-
-Ex ex = new Ex();
-ex.Main();
+using System.Collections;
+using System.Collections.Generic;
 
 public class Node<T>
 {
-    public Node(T data)
+    private T val;
+    private Node<T> next;
+
+    public Node(T value)
     {
-        Data = data;
-        Next = null;
+        val = value;
+        next = null;
     }
 
-    public Node()
-    {
-        Next = null;
-    }
-
-    public T Data { get; set; }
-    public Node<T> Next { get; set; }
-
-    public override string ToString()
-    {
-        return Data.ToString();
-    }
+    public T Value { get { return val; } set { val = value; } }
+    public Node<T> Next { get { return next; } set { next = value; } }
 }
 
-public class LinkedList<T> : IEnumerable<T>
+public class MyList<T> : IEnumerable
 {
-    private Node<T> root; //первый элемент
-    private Node<T> sentinel; //последний элемент
-    int count;
-
-    public LinkedList()
-    {
-        root = new Node<T>();
-        sentinel = root;
-    }
-
-    public bool Empty(LinkedList<T> lst)
-    {
-        if (lst.Count == 0) return true;
-        else return false;
-    }
-
-    public void PushBack(T data)
-    {
-        Node<T> node = new Node<T>(data);
-        if (count == 0)
-        {
-            root = node;
-            node.Next = sentinel;
-        }
-
-        count++;
-    }
-
-    public void PustFront(T data)
-    {
-        Node<T> node = new Node<T>(data);
-
-    }
+    private int count;
+    public int counter1;
+    public int counter2;
+    private Node<T> head;
 
     public int Count { get { return count; } }
 
+    public void PushBack(T value)
+    {
+        if (head == null)
+        {
+            head = new Node<T>(value);
+        }
+        else
+        {
+            var current = head;
+            while (current.Next != null)
+                current = current.Next;
+            current.Next = new Node<T>(value);
+        }
+        count++;
+    }
+
+    public T GetValue(int index)
+    {
+
+        var cur = head;
+        for (int i = 0; i < index; i++)
+        {
+            cur = cur.Next;
+
+        }
+        return cur.Value;
+    }
+
+    public T this[int index]
+    {
+        set
+        {
+            var cur = head;
+            for (int i = 0; i < index; i++)
+                cur = cur.Next;
+            cur.Value = value;
+        }
+
+        get
+        {
+            var node = head;
+            for (int i = 0; i < index; i++)
+            {
+                node = node.Next;
+                ++counter2;
+            }
+            return node.Value;
+        }
+    }
+
     public IEnumerator<T> GetEnumerator()
     {
-        var current = root;
+        var current = head;
         while (current != null)
         {
-            yield return current.Data;
+            yield return current.Value;
+            ++counter1;
             current = current.Next;
         }
     }
-
-    IEnumerator<T> IEnumerable<T>.GetEnumerator() { return GetEnumerator(); }
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return GetEnumerator();
+    }
 }
 
 
-
-
-
-public class Ex
+class Program
 {
-
-    public void print_lst(LinkedList<char> l)
+    static void Main(string[] args)
     {
-        foreach (var item in l)
+        MyList<int> list = new MyList<int>();
+        for (int i = 0; i < 100; i++)
         {
-            Console.Write(item);
+            list.PushBack(i);
         }
-    }
-    public void Main()
-    {
-        var lst = new LinkedList<char>(); // ваш список
-                                          //lst.PushBack('s');
-        //Console.WriteLine(lst.Count + " " + lst.Empty(lst));
-
-        for (int i = 0; i < 5; i++)
-            lst.PushBack((char)(i + 97));
-
-
-
-        print_lst(lst);
+        for (int i = 0; i < list.Count; i++)
+        {
+            Console.WriteLine(list[i]);
+        }
+        Console.WriteLine(list.counter2);
+        foreach (var obj in list)
+        {
+            Console.WriteLine(obj);
+        }
+        Console.WriteLine(list.counter1);
     }
 }

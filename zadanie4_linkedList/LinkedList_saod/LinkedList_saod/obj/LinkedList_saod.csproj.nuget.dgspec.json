@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "\\\\Mac\\Home\\Desktop\\LinkedList_saod\\LinkedList_saod\\LinkedList_saod\\LinkedList_saod.csproj": {}
+    "C:\\Users\\shia.21\\saod2k\\zadanie4_linkedList\\LinkedList_saod\\LinkedList_saod\\LinkedList_saod.csproj": {}
   },
   "projects": {
-    "\\\\Mac\\Home\\Desktop\\LinkedList_saod\\LinkedList_saod\\LinkedList_saod\\LinkedList_saod.csproj": {
+    "C:\\Users\\shia.21\\saod2k\\zadanie4_linkedList\\LinkedList_saod\\LinkedList_saod\\LinkedList_saod.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "\\\\Mac\\Home\\Desktop\\LinkedList_saod\\LinkedList_saod\\LinkedList_saod\\LinkedList_saod.csproj",
+        "projectUniqueName": "C:\\Users\\shia.21\\saod2k\\zadanie4_linkedList\\LinkedList_saod\\LinkedList_saod\\LinkedList_saod.csproj",
         "projectName": "LinkedList_saod",
-        "projectPath": "\\\\Mac\\Home\\Desktop\\LinkedList_saod\\LinkedList_saod\\LinkedList_saod\\LinkedList_saod.csproj",
-        "packagesPath": "C:\\Users\\d4zzy\\.nuget\\packages\\",
-        "outputPath": "\\\\Mac\\Home\\Desktop\\LinkedList_saod\\LinkedList_saod\\LinkedList_saod\\obj\\",
+        "projectPath": "C:\\Users\\shia.21\\saod2k\\zadanie4_linkedList\\LinkedList_saod\\LinkedList_saod\\LinkedList_saod.csproj",
+        "packagesPath": "C:\\Users\\shia.21\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\shia.21\\saod2k\\zadanie4_linkedList\\LinkedList_saod\\LinkedList_saod\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\d4zzy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\shia.21\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -45,7 +50,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -54,7 +60,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
