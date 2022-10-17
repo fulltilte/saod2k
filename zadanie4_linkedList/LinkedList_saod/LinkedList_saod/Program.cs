@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 public class Node<T>
 {
@@ -17,27 +20,37 @@ public class Node<T>
     public Node<T> Next { get { return next; } set { next = value; } }
 }
 
-public class MyList<T> : IEnumerable
+public class myLinkedList<T> : IEnumerable
 {
     private int count;
-    public int counter1;
-    public int counter2;
-    private Node<T> head;
+    private Node<T> root;
+    private Node<T> sentinel;
 
     public int Count { get { return count; } }
 
     public void PushBack(T value)
     {
-        if (head == null)
+        Node<T> newEl = new(value)
         {
-            head = new Node<T>(value);
+            Next = sentinel
+        };
+
+        if (root == sentinel)
+        {
+            root = newEl;
+            sentinel = newEl;
         }
+
         else
         {
-            var current = head;
-            while (current.Next != null)
-                current = current.Next;
-            current.Next = new Node<T>(value);
+            Node<T> curEl = root;
+
+            //  Ищем последний элемент
+            while (curEl != null && curEl.Next != sentinel)
+                curEl = curEl.Next;
+
+            if (curEl != null)
+                curEl.Next = newEl;
         }
         count++;
     }
@@ -45,7 +58,7 @@ public class MyList<T> : IEnumerable
     public T GetValue(int index)
     {
 
-        var cur = head;
+        var cur = root;
         for (int i = 0; i < index; i++)
         {
             cur = cur.Next;
@@ -58,7 +71,7 @@ public class MyList<T> : IEnumerable
     {
         set
         {
-            var cur = head;
+            var cur = root;
             for (int i = 0; i < index; i++)
                 cur = cur.Next;
             cur.Value = value;
@@ -66,11 +79,10 @@ public class MyList<T> : IEnumerable
 
         get
         {
-            var node = head;
+            var node = root;
             for (int i = 0; i < index; i++)
             {
                 node = node.Next;
-                ++counter2;
             }
             return node.Value;
         }
@@ -78,17 +90,24 @@ public class MyList<T> : IEnumerable
 
     public IEnumerator<T> GetEnumerator()
     {
-        var current = head;
+        var current = root;
         while (current != null)
         {
             yield return current.Value;
-            ++counter1;
             current = current.Next;
         }
     }
     IEnumerator IEnumerable.GetEnumerator()
     {
         return GetEnumerator();
+    }
+
+    public void print_lst(myLinkedList<char> l)
+    {
+        foreach (var item in l)
+        {
+            Console.Write(item + " ");
+        }
     }
 }
 
@@ -97,20 +116,14 @@ class Program
 {
     static void Main(string[] args)
     {
-        MyList<int> list = new MyList<int>();
-        for (int i = 0; i < 100; i++)
-        {
-            list.PushBack(i);
-        }
-        for (int i = 0; i < list.Count; i++)
-        {
-            Console.WriteLine(list[i]);
-        }
-        Console.WriteLine(list.counter2);
-        foreach (var obj in list)
-        {
-            Console.WriteLine(obj);
-        }
-        Console.WriteLine(list.counter1);
+        myLinkedList<char> l = new myLinkedList<char>();
+
+        var lst = new myLinkedList<char>(); // ваш список
+        Console.WriteLine(lst.Count + " ");
+        
+        for (int i = 0; i < 5; i++)
+            lst.PushBack((char)(i + 97));
+        
+        l.print_lst(lst);
     }
 }
