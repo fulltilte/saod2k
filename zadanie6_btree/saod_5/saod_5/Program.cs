@@ -7,18 +7,13 @@ namespace saod_5
 {
     class Program
     {
-        
-
         public class Node
         {
             private int val;
             private Node left;
             private Node right;
 
-            public Node(int value)
-            {
-                val = value;
-            }
+            public Node(int value) { val = value;}
 
             public int Key { get { return val; } set { val = value; } }
             public Node Left { get { return left; } set { left = value; } }
@@ -38,6 +33,7 @@ namespace saod_5
                     root = new Node(x);
                     count++;
                 }
+
                 else
                 {
                     insert(root, x);
@@ -64,6 +60,7 @@ namespace saod_5
                         n.Left = new Node(x);
                     }
                 }
+
                 else
                 {
                     if (n.Right != null)
@@ -84,6 +81,7 @@ namespace saod_5
                 if (root.Key == item) return true;
                 if (root.Key > item)
                     return Contains(item, root.Left);
+
                 return Contains(item, root.Right);
             }
 
@@ -93,9 +91,8 @@ namespace saod_5
 
                 if (n.Key == item) return true;
                 if (n.Key > item)
-                {
                     return Contains(item, n.Left);
-                }
+                
                 return Contains(item, n.Right);
             }
 
@@ -133,6 +130,7 @@ namespace saod_5
                 stringBuilder.Append('\n');
 
                 var i = 0;
+
                 while (i * left.Key < left.Value.Length && i * right.Key < right.Value.Length)
                 {
                     stringBuilder.Append(left.Value, i * left.Key, left.Key - 1);
@@ -158,6 +156,7 @@ namespace saod_5
                 }
                 return new KeyValuePair<int, string>(left.Key + objString.Length + right.Key - 1, stringBuilder.ToString());
             }
+
             override public string ToString()
             {
                 var res = ToStringHelper(root).Value;

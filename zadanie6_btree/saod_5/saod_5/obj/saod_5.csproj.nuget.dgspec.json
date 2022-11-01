@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/d4zzy/Projects/saod_5/saod_5/saod_5.csproj": {}
+    "/Users/d4zzy/saod2k/zadanie6_btree/saod_5/saod_5/saod_5.csproj": {}
   },
   "projects": {
-    "/Users/d4zzy/Projects/saod_5/saod_5/saod_5.csproj": {
+    "/Users/d4zzy/saod2k/zadanie6_btree/saod_5/saod_5/saod_5.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/d4zzy/Projects/saod_5/saod_5/saod_5.csproj",
+        "projectUniqueName": "/Users/d4zzy/saod2k/zadanie6_btree/saod_5/saod_5/saod_5.csproj",
         "projectName": "saod_5",
-        "projectPath": "/Users/d4zzy/Projects/saod_5/saod_5/saod_5.csproj",
+        "projectPath": "/Users/d4zzy/saod2k/zadanie6_btree/saod_5/saod_5/saod_5.csproj",
         "packagesPath": "/Users/d4zzy/.nuget/packages/",
-        "outputPath": "/Users/d4zzy/Projects/saod_5/saod_5/obj/",
+        "outputPath": "/Users/d4zzy/saod2k/zadanie6_btree/saod_5/saod_5/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/d4zzy/.config/NuGet/NuGet.Config"

@@ -1,8 +1,19 @@
 ﻿<Properties StartupConfiguration="{CB2E6E18-A6F4-4101-B3A7-CC8BEA299895}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="saod_5/Program.cs">
     <Files>
-      <File FileName="saod_5/Program.cs" Line="4" Column="34" />
+      <File FileName="saod_5/Program.cs" Line="133" Column="1" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="saod_5" expanded="True">
+            <Node name="saod_5" expanded="True">
+              <Node name="Program.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.saod__5 PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
