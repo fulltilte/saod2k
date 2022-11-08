@@ -22,7 +22,7 @@ namespace saod_5
 
         public class BTree
         {
-            private Node root;
+            public Node root;
             public BTree() { }
             public int count = 0;
 
@@ -94,6 +94,22 @@ namespace saod_5
                     return Contains(item, n.Left);
 
                 return Contains(item, n.Right);
+            }
+
+            public Node rotate_right(Node rt)
+            {
+                Node pivot = rt.Left;
+                rt.Left = pivot.Right;
+                pivot.Right = rt;
+                return pivot;
+            }
+
+            public Node rotate_left(Node rt)
+            {
+                Node pivot = rt.Right;
+                rt.Right = pivot.Left;
+                pivot.Left = rt;
+                return pivot;
             }
 
             //public void Print()
@@ -170,22 +186,27 @@ namespace saod_5
             var init = Enumerable.Range(0, 20).OrderBy(x => rnd.Next()).ToArray();
 
             var tree = new BTree();
-            foreach (var obj in init)
-                tree.Insert(obj);
+            /*foreach (var obj in init)
+                tree.Insert(obj);*/
 
-            /*tree.Insert(5);
-            tree.Insert(2);
-            tree.Insert(7);
-            tree.Insert(1);
+            tree.Insert(5);
             tree.Insert(3);
-            tree.Insert(6);
-            tree.Insert(8);*/
+            tree.Insert(7);
+            tree.Insert(2);
+            tree.Insert(4);
+            
 
             //tree.Print();
 
             Console.WriteLine(tree);
 
             Console.WriteLine(tree.Contains(15));
+
+            tree.root = tree.rotate_right(tree.root);
+            Console.WriteLine(tree);
+
+            tree.root = tree.rotate_left(tree.root);
+            Console.WriteLine(tree);
         }
     }
 }

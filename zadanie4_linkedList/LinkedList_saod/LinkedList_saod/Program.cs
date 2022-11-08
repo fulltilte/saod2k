@@ -28,17 +28,21 @@ public class myLinkedList<T> : IEnumerable
 
     public int Count { get { return count; } }
 
+    public myLinkedList()
+    {
+        Node<T> newEl = new(default(T));
+        root = newEl;
+        sentinel = newEl;
+    }
+
     public void PushBack(T value)
     {
-        Node<T> newEl = new(value)
-        {
-            Next = sentinel
-        };
-
+        Node<T> newEl = new(value);
         if (root == sentinel)
         {
+            newEl.Next = sentinel;
             root = newEl;
-            sentinel = newEl;
+            sentinel = newEl.Next;
         }
 
         else
@@ -46,13 +50,39 @@ public class myLinkedList<T> : IEnumerable
             Node<T> curEl = root;
 
             //  Ищем последний элемент
-            while (curEl != null && curEl.Next != sentinel)
+            while (curEl.Next != sentinel)
                 curEl = curEl.Next;
-
-            if (curEl != null)
-                curEl.Next = newEl;
+            newEl.Next = sentinel;
+            curEl.Next = newEl;
         }
         count++;
+    }
+
+    public void PushFront(T value)
+    {
+        Node<T> newEl = new(value);
+        if (root == sentinel)
+        {
+            newEl.Next = sentinel;
+            root = newEl;
+            sentinel = newEl.Next;
+        }
+
+        else
+        {
+            newEl.Next = root;
+            root = newEl;
+            
+        }
+        count++;
+    }
+
+    public void PopFront()
+    {
+        if (count > 0)
+        {
+            root = root.Next;
+        }
     }
 
     public T GetValue(int index)
@@ -91,7 +121,7 @@ public class myLinkedList<T> : IEnumerable
     public IEnumerator<T> GetEnumerator()
     {
         var current = root;
-        while (current != null)
+        while (current != sentinel)
         {
             yield return current.Value;
             current = current.Next;
@@ -101,29 +131,38 @@ public class myLinkedList<T> : IEnumerable
     {
         return GetEnumerator();
     }
+}
 
-    public void print_lst(myLinkedList<char> l)
+
+
+class Program
+{
+    public static void print_lst(myLinkedList<char> l)
     {
         foreach (var item in l)
         {
             Console.Write(item + " ");
         }
+        Console.WriteLine();
     }
-}
-
-
-class Program
-{
     static void Main(string[] args)
     {
-        myLinkedList<char> l = new myLinkedList<char>();
+        //myLinkedList<char> l = new myLinkedList<char>();
 
         var lst = new myLinkedList<char>(); // ваш список
         Console.WriteLine(lst.Count + " ");
         
         for (int i = 0; i < 5; i++)
             lst.PushBack((char)(i + 97));
-        
-        l.print_lst(lst);
+
+        print_lst(lst);
+
+        lst.PushFront('z');
+
+        print_lst(lst);
+
+        lst.PopFront();
+        print_lst(lst);
+
     }
 }
