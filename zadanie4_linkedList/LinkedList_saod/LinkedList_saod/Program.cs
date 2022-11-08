@@ -38,6 +38,7 @@ public class myLinkedList<T> : IEnumerable
     public void PushBack(T value)
     {
         Node<T> newEl = new(value);
+
         if (root == sentinel)
         {
             newEl.Next = sentinel;
@@ -49,18 +50,20 @@ public class myLinkedList<T> : IEnumerable
         {
             Node<T> curEl = root;
 
-            //  Ищем последний элемент
             while (curEl.Next != sentinel)
                 curEl = curEl.Next;
+
             newEl.Next = sentinel;
             curEl.Next = newEl;
         }
+
         count++;
     }
 
     public void PushFront(T value)
     {
         Node<T> newEl = new(value);
+
         if (root == sentinel)
         {
             newEl.Next = sentinel;
@@ -72,9 +75,47 @@ public class myLinkedList<T> : IEnumerable
         {
             newEl.Next = root;
             root = newEl;
-            
         }
+
         count++;
+    }
+
+    public void Insert(int index, T value)
+    {
+        Node<T> curEl = root;
+        Node<T> newEl = new(value);
+
+        if (count >= index)
+        {
+            if (index == 0) PushFront(value);
+
+            else if (index > 0 && index < count)
+            {
+                for (int i = 0; i < index - 1; i++)
+                    if (curEl.Next.Next != sentinel)
+                        curEl = curEl.Next;
+
+                newEl.Next = curEl.Next;
+                curEl.Next = newEl;
+                count++;
+            }
+
+            else PushBack(value);
+        }
+    }
+
+    public void PopBack()
+    {
+        Node<T> curEl = root;
+
+        if (count > 0)
+        {
+            while ((curEl.Next).Next != sentinel)
+                curEl = curEl.Next;
+
+            curEl.Next = sentinel;
+            count--;
+        }
     }
 
     public void PopFront()
@@ -82,18 +123,64 @@ public class myLinkedList<T> : IEnumerable
         if (count > 0)
         {
             root = root.Next;
+            count--;
         }
+    }
+
+    public void RemoveAt(int index)
+    {
+        Node<T> curEl = root;
+
+        if (count >= index)
+        {
+            if (index == 0) PopFront();
+
+            else if (index > 0 && index < count)
+            {
+                for (int i = 0; i < index - 1; i++)
+                    if (curEl.Next.Next != sentinel)
+                        curEl = curEl.Next;
+
+                curEl.Next = curEl.Next.Next;
+                count--;
+            }
+
+            else PopBack();
+        }
+    }
+
+    public bool Empty()
+    {
+        if (count != 0) return false;
+        return true;
+    }
+
+    public void Clear()
+    {
+        root = sentinel;
+        count = 0;
+    }
+
+    public T First() { return root.Value;}
+
+    public T Last()
+    {
+        Node<T> curEl = root;
+
+        while (curEl.Next != sentinel)
+            curEl = curEl.Next;
+
+        return curEl.Value;
     }
 
     public T GetValue(int index)
     {
 
         var cur = root;
+
         for (int i = 0; i < index; i++)
-        {
             cur = cur.Next;
 
-        }
         return cur.Value;
     }
 
@@ -102,18 +189,20 @@ public class myLinkedList<T> : IEnumerable
         set
         {
             var cur = root;
+
             for (int i = 0; i < index; i++)
                 cur = cur.Next;
+
             cur.Value = value;
         }
 
         get
         {
             var node = root;
+
             for (int i = 0; i < index; i++)
-            {
                 node = node.Next;
-            }
+            
             return node.Value;
         }
     }
@@ -127,42 +216,56 @@ public class myLinkedList<T> : IEnumerable
             current = current.Next;
         }
     }
+
     IEnumerator IEnumerable.GetEnumerator()
     {
         return GetEnumerator();
     }
 }
 
-
-
 class Program
 {
     public static void print_lst(myLinkedList<char> l)
     {
         foreach (var item in l)
-        {
             Console.Write(item + " ");
-        }
+        
         Console.WriteLine();
     }
+
     static void Main(string[] args)
     {
-        //myLinkedList<char> l = new myLinkedList<char>();
-
-        var lst = new myLinkedList<char>(); // ваш список
-        Console.WriteLine(lst.Count + " ");
+        var lst = new myLinkedList<char>();
+        
+        Console.WriteLine(lst.Count + " " + lst.Empty());
         
         for (int i = 0; i < 5; i++)
             lst.PushBack((char)(i + 97));
-
         print_lst(lst);
-
-        lst.PushFront('z');
-
+        
+        for (int i = 0; i < 5; i++)
+            lst.Insert(0, (char)(122 - i));
         print_lst(lst);
-
+        
+        for (int i = 0; i < lst.Count; i++)
+            lst[i] = (char)(i + 97); // методы доступа set
+        print_lst(lst);
+        
+        lst.PopBack();
         lst.PopFront();
+        
         print_lst(lst);
-
+        lst.RemoveAt(5);
+        lst.Insert(3, 'o');
+        
+        print_lst(lst); 
+        lst.Clear();
+        
+        lst.PushBack('q');
+        lst.PushFront('a');
+        lst.PushBack('w');
+        
+        Console.WriteLine(lst.First() + " " + lst.Last());
+        Console.WriteLine(lst.Count + " " + lst.Empty());
     }
 }
