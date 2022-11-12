@@ -8,7 +8,6 @@ using System.Diagnostics;
 
 public class DoublyNode<T>
 {
-
     public DoublyNode(T value)
     {
         Value = value;
@@ -27,9 +26,7 @@ public class myDLinkedList<T> : IEnumerable<T>
 
     public int Count { get { return count; } }
 
-    public myDLinkedList() {
-        count = 0;
-    }
+    public myDLinkedList() { count = 0; }
 
     public void Add(T item)
     {
@@ -78,6 +75,7 @@ public class myDLinkedList<T> : IEnumerable<T>
                 newEl.Previous = curEl;
                 curEl.Next = newEl;
                 newEl.Next.Previous = newEl;
+                count++;
             }
 
             else Add(item);
