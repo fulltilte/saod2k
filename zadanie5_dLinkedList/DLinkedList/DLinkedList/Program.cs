@@ -5,23 +5,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
+using DLinkedList;
 
 public class DoublyNode<T>
 {
-    public DoublyNode(T value)
+    public DoublyNode(T v)
     {
-        Value = value;
+        value = v;
     }
 
-    public T Value { get; set; }
+    public T value { get; set; }
     public DoublyNode<T> Next { get; set; }
     public DoublyNode<T> Previous { get; set; }
 }
 
 public class myDLinkedList<T> : IEnumerable<T>
 {
-    private DoublyNode<T> head;
-    private DoublyNode<T> tail;
+    public DoublyNode<T> head;
+    public DoublyNode<T> tail;
     private int count;
 
     public int Count { get { return count; } }
@@ -51,8 +52,9 @@ public class myDLinkedList<T> : IEnumerable<T>
     public void Insert(int index, T item)
     {
         DoublyNode<T> newEl = new (item);
+        int indexN = index - 1;
 
-        if (count >= index)
+        if (count > index)
         {
             DoublyNode<T> curEl = head;
             DoublyNode<T> curT = tail;
@@ -67,7 +69,34 @@ public class myDLinkedList<T> : IEnumerable<T>
 
             else if (index > 0 && index < count)
             {
-                for (int i = 0; i < index - 1; i++)
+                if (index < count / 2)
+                {
+                    for (int i = 0; i < indexN; i++)
+                        if (curEl != null)
+                            curEl = curEl.Next;
+
+                    newEl.Next = curEl.Next;
+                    newEl.Previous = curEl;
+                    curEl.Next = newEl;
+                    newEl.Next.Previous = newEl;
+                }
+
+                else
+                {
+                    for (int i = 0; i < count - indexN - 1; i++)
+                        if (curT != null)
+                            curT = curT.Next;
+
+                    newEl.Next = curT.Next;
+                    newEl.Previous = curT;
+                    curT.Next = newEl;
+                    newEl.Next.Previous = newEl;
+                }
+
+                count++;
+
+
+                /*for (int i = 0; i < index - 1; i++)
                     if (curEl.Next.Next != null)
                         curEl = curEl.Next;
 
@@ -75,7 +104,7 @@ public class myDLinkedList<T> : IEnumerable<T>
                 newEl.Previous = curEl;
                 curEl.Next = newEl;
                 newEl.Next.Previous = newEl;
-                count++;
+                count++;*/
             }
 
             else Add(item);
@@ -93,7 +122,7 @@ public class myDLinkedList<T> : IEnumerable<T>
 
         while (curEl != null)
         {
-            yield return curEl.Value;
+            yield return curEl.value;
             curEl = curEl.Next;
         }
     }
@@ -111,7 +140,7 @@ class Program
 
     static void Main(string[] args)
     {
-        var lst = new myDLinkedList<char>();
+        /*var lst = new myDLinkedList<char>();
 
         lst.Add('a');
         lst.Add('b');
@@ -140,6 +169,57 @@ class Program
 
         System.Console.WriteLine("Oper <Insert> time (msec): " + Convert.ToDouble(elapsedMs) / 1000);
 
+        print_lst(lst);*/
+
+        cLinkedList  df = new cLinkedList();
+
+        var lst1 = new df.myLinkedList<int>();
+        int N = 200;
+        var rnd = new Random(1);
+
+        for (int i = 0; i != N; i++) lst1.PushBack(i);
+
+        System.Diagnostics.Stopwatch watch;
+        long elapsedMs;
+        watch = System.Diagnostics.Stopwatch.StartNew();
+
+        for (int i = 0; i != N; i++) lst1.Insert(rnd.Next(0, lst1.Count - 2), 5);
+        watch.Stop();
+        elapsedMs = watch.ElapsedMilliseconds;
+        Console.WriteLine(lst1.Count);
+        System.Console.WriteLine("Oper <Insert> time (msec): " + Convert.ToDouble(elapsedMs) / 1000); */
+
+        /*var lst = new myDLinkedList<int>();
+        int N = 200;
+        var rnd = new Random(1);
+
+        for (int i = 0; i != N; i++) lst.Add(i);
+
+        System.Diagnostics.Stopwatch watch;
+        long elapsedMs;
+        watch = System.Diagnostics.Stopwatch.StartNew();
+
+        for (int i = 0; i != N; i++) lst.Insert(rnd.Next(0, lst.Count - 2), 5);
+        watch.Stop();
+        elapsedMs = watch.ElapsedMilliseconds;
+        Console.WriteLine(lst.Count);
+        System.Console.WriteLine("Oper <Insert> time (msec): " + Convert.ToDouble(elapsedMs) / 1000);*/
+
+
+        var lst = new myDLinkedList<char>();
+
+        lst.Add('a');
+        lst.Add('b');
+        lst.Add('c');
+        lst.Add('d');
+        lst.Add('e');
+        lst.Add('f');
+        lst.Add('g');
+        lst.Add('i');
+
+        print_lst(lst);
+
+        lst.Insert(5, 's');
         print_lst(lst);
     }
 }
