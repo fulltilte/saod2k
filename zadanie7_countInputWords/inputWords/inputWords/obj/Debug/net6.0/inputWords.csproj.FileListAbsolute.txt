@@ -1,0 +1,15 @@
+C:\Users\d4zzy\saod2k\zadanie7_countInputWords\inputWords\inputWords\obj\Debug\net6.0\inputWords.csproj.AssemblyReference.cache
+C:\Users\d4zzy\saod2k\zadanie7_countInputWords\inputWords\inputWords\obj\Debug\net6.0\inputWords.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\d4zzy\saod2k\zadanie7_countInputWords\inputWords\inputWords\obj\Debug\net6.0\inputWords.AssemblyInfoInputs.cache
+C:\Users\d4zzy\saod2k\zadanie7_countInputWords\inputWords\inputWords\obj\Debug\net6.0\inputWords.AssemblyInfo.cs
+C:\Users\d4zzy\saod2k\zadanie7_countInputWords\inputWords\inputWords\obj\Debug\net6.0\inputWords.csproj.CoreCompileInputs.cache
+C:\Users\d4zzy\saod2k\zadanie7_countInputWords\inputWords\inputWords\bin\Debug\net6.0\inputWords.exe
+C:\Users\d4zzy\saod2k\zadanie7_countInputWords\inputWords\inputWords\bin\Debug\net6.0\inputWords.deps.json
+C:\Users\d4zzy\saod2k\zadanie7_countInputWords\inputWords\inputWords\bin\Debug\net6.0\inputWords.runtimeconfig.json
+C:\Users\d4zzy\saod2k\zadanie7_countInputWords\inputWords\inputWords\bin\Debug\net6.0\inputWords.dll
+C:\Users\d4zzy\saod2k\zadanie7_countInputWords\inputWords\inputWords\bin\Debug\net6.0\inputWords.pdb
+C:\Users\d4zzy\saod2k\zadanie7_countInputWords\inputWords\inputWords\obj\Debug\net6.0\inputWords.dll
+C:\Users\d4zzy\saod2k\zadanie7_countInputWords\inputWords\inputWords\obj\Debug\net6.0\refint\inputWords.dll
+C:\Users\d4zzy\saod2k\zadanie7_countInputWords\inputWords\inputWords\obj\Debug\net6.0\inputWords.pdb
+C:\Users\d4zzy\saod2k\zadanie7_countInputWords\inputWords\inputWords\obj\Debug\net6.0\inputWords.genruntimeconfig.cache
+C:\Users\d4zzy\saod2k\zadanie7_countInputWords\inputWords\inputWords\obj\Debug\net6.0\ref\inputWords.dll
