@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace DLinkedList
 {
-    internal class cLinkedList
-    {
+    
         public class Node<T>
         {
             private T val;
@@ -226,5 +225,5 @@ namespace DLinkedList
                 return GetEnumerator();
             }
         }
-    }
+    
 }
