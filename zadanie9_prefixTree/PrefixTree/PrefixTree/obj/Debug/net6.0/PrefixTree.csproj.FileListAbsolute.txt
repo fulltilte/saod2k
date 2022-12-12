@@ -1,0 +1,15 @@
+C:\Users\d4zzy\saod2k\zadanie9_prefixTree\PrefixTree\PrefixTree\bin\Debug\net6.0\PrefixTree.exe
+C:\Users\d4zzy\saod2k\zadanie9_prefixTree\PrefixTree\PrefixTree\bin\Debug\net6.0\PrefixTree.deps.json
+C:\Users\d4zzy\saod2k\zadanie9_prefixTree\PrefixTree\PrefixTree\bin\Debug\net6.0\PrefixTree.runtimeconfig.json
+C:\Users\d4zzy\saod2k\zadanie9_prefixTree\PrefixTree\PrefixTree\bin\Debug\net6.0\PrefixTree.dll
+C:\Users\d4zzy\saod2k\zadanie9_prefixTree\PrefixTree\PrefixTree\bin\Debug\net6.0\PrefixTree.pdb
+C:\Users\d4zzy\saod2k\zadanie9_prefixTree\PrefixTree\PrefixTree\obj\Debug\net6.0\PrefixTree.csproj.AssemblyReference.cache
+C:\Users\d4zzy\saod2k\zadanie9_prefixTree\PrefixTree\PrefixTree\obj\Debug\net6.0\PrefixTree.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\d4zzy\saod2k\zadanie9_prefixTree\PrefixTree\PrefixTree\obj\Debug\net6.0\PrefixTree.AssemblyInfoInputs.cache
+C:\Users\d4zzy\saod2k\zadanie9_prefixTree\PrefixTree\PrefixTree\obj\Debug\net6.0\PrefixTree.AssemblyInfo.cs
+C:\Users\d4zzy\saod2k\zadanie9_prefixTree\PrefixTree\PrefixTree\obj\Debug\net6.0\PrefixTree.csproj.CoreCompileInputs.cache
+C:\Users\d4zzy\saod2k\zadanie9_prefixTree\PrefixTree\PrefixTree\obj\Debug\net6.0\PrefixTree.dll
+C:\Users\d4zzy\saod2k\zadanie9_prefixTree\PrefixTree\PrefixTree\obj\Debug\net6.0\refint\PrefixTree.dll
+C:\Users\d4zzy\saod2k\zadanie9_prefixTree\PrefixTree\PrefixTree\obj\Debug\net6.0\PrefixTree.pdb
+C:\Users\d4zzy\saod2k\zadanie9_prefixTree\PrefixTree\PrefixTree\obj\Debug\net6.0\PrefixTree.genruntimeconfig.cache
+C:\Users\d4zzy\saod2k\zadanie9_prefixTree\PrefixTree\PrefixTree\obj\Debug\net6.0\ref\PrefixTree.dll
